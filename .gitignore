@@ -1,0 +1,43 @@
+# Hugo-specific
+/public/
+/resources/
+/node_modules/
+/exampleSite/public/
+/exampleSite/resources/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.log
+
+# Dependency files (if using npm/yarn)
+package-lock.json
+yarn.lock
+/.hugo_build.lock
+
+# Ignore the Hugo executable (if downloaded locally)
+hugo
+
+# Optional: Ignore binary or temporary build artifacts
+*.bak
+*.tmp
+*.out
+*.exe
+
+# Ignore generated or backup files
+*.old
+*.orig
+
+# Ignore logs and debugging files
+*.log
+
+# Ignore any additional personal or system-specific files
+/.env
+/secrets/

@@ -1,0 +1,17 @@
+name = "Hugo News"
+license = "MIT"
+licenselink = "https://github.com/professionalaf/hugo-news/blob/master/LICENSE"
+description = "A modern, responsive Hugo theme for news and media websites. Built with Tailwind CSS and Alpine.js"
+homepage = "https://github.com/professionalaf/hugo-news"
+tags = ["blog", "news", "responsive", "modern", "search", "tailwind", "alpine", "authors", "featured-images"]
+features = ["search", "authors", "categories", "tags", "responsive", "tailwind", "alpine"]
+min_version = "0.116.0"
+
+[author]
+  name = "Taylor Ondrey"
+  homepage = "https://taylorondrey.com"
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

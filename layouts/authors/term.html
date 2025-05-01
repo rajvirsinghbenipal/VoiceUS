@@ -1,0 +1,223 @@
+{{ define "main" }}
+<div class="max-w-4xl mx-auto px-4 py-8">
+    {{ with .Page }}
+    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-8">
+            <header class="mb-8 md:flex md:items-start md:gap-8">
+                {{ with .Params.featured_image }}
+                <div class="mb-6 md:mb-0 md:w-1/3 flex-shrink-0">
+                    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                {{ end }}
+                <div class="md:flex-1">
+                    <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+                    {{ with .Params.role }}
+                    <p class="text-xl text-gray-600 mb-4">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </header>
+
+            {{ with .Params.bio }}
+            <div class="prose max-w-none mb-8">
+                <p class="text-lg">{{ . }}</p>
+            </div>
+            {{ end }}
+
+            <div class="markdown-content bg-white rounded-lg shadow-md p-8 mb-8">
+                {{ .Content | safeHTML }}
+            </div>
+
+            {{ with .Params.expertise }}
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Areas of Expertise</h2>
+                <div class="flex flex-wrap gap-2">
+                    {{ range . }}
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">{{ . }}</span>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ with .Params.education }}
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Education</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    {{ range . }}
+                    <li class="text-gray-700">{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Recent Articles</h2>
+                <div class="space-y-4">
+                    {{ $authorPosts := where .Site.RegularPages "Params.author" .Title }}
+                    {{ range $authorPosts }}
+                    <article class="border-b border-gray-200 pb-4">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <a href="{{ .RelPermalink }}" class="text-blue-600 hover:text-blue-800">
+                                {{ .Title }}
+                            </a>
+                        </h3>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format "January 2, 2006" }}
+                            </time>
+                            {{ with .Params.categories }}
+                            <span class="mx-2">•</span>
+                            <div class="flex gap-2">
+                                {{ range . }}
+                                <span class="px-2 py-1 bg-gray-100 rounded-full">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </article>
+                    {{ end }}
+                </div>
+            </div>
+
+            {{ with .Params.social }}
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Follow {{ $.Title }}</h2>
+                <div class="flex gap-4">
+                    {{ with .twitter }}
+                    <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" 
+                       class="text-blue-400 hover:text-blue-600">
+                        Twitter: @{{ . }}
+                    </a>
+                    {{ end }}
+                    {{ with .truth_social }}
+                    <a href="https://truthsocial.com/{{ . }}" target="_blank" rel="noopener noreferrer"
+                       class="text-blue-400 hover:text-blue-600">
+                        Truth Social: {{ . }}
+                    </a>
+                    {{ end }}
+                    {{ with .mastodon }}
+                    <a href="https://{{ index (split . "@") 2 }}/@{{ index (split . "@") 1 }}" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-blue-400 hover:text-blue-600">
+                        Mastodon: {{ . }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </article>
+    {{ end }}
+</div>
+
+<style>
+.markdown-content {
+    line-height: 1.6;
+    color: #374151;
+}
+
+.markdown-content h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+}
+
+.markdown-content h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 1.75rem 0 1rem;
+}
+
+.markdown-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+}
+
+.markdown-content p {
+    margin: 1rem 0;
+}
+
+.markdown-content ul, .markdown-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.markdown-content ul {
+    list-style-type: disc;
+}
+
+.markdown-content ol {
+    list-style-type: decimal;
+}
+
+.markdown-content li {
+    margin: 0.5rem 0;
+}
+
+.markdown-content a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.markdown-content a:hover {
+    color: #1d4ed8;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #6b7280;
+}
+
+.markdown-content code {
+    background-color: #f3f4f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+}
+
+.markdown-content pre {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.markdown-content hr {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 2rem 0;
+}
+
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.markdown-content th, .markdown-content td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.markdown-content th {
+    background-color: #f9fafb;
+    font-weight: 600;
+}
+</style>
+{{ end }} 

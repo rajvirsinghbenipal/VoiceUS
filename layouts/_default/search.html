@@ -1,0 +1,126 @@
+{{ define "main" }}
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search posts..." class="search-input">
+    <div id="search-results" class="search-results"></div>
+</div>
+
+<!-- Include Fuse.js -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+<script>
+// Get search index
+fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+        const options = {
+            keys: [
+                { name: 'title', weight: 2 },
+                { name: 'content', weight: 1 },
+                { name: 'tags', weight: 1.5 },
+                { name: 'categories', weight: 1.5 },
+                { name: 'summary', weight: 1.5 }
+            ],
+            threshold: 0.3,
+            includeScore: true
+        };
+        const fuse = new Fuse(data.items, options);
+        
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        
+        // Get query from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialQuery = urlParams.get('q');
+        if (initialQuery) {
+            searchInput.value = initialQuery;
+            performSearch(initialQuery);
+        }
+        
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value;
+            performSearch(term);
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('q', term);
+            window.history.pushState({}, '', url);
+        });
+
+        function performSearch(term) {
+            if (term.length < 2) {
+                searchResults.innerHTML = '';
+                return;
+            }
+            
+            const results = fuse.search(term);
+            const html = results.map(result => {
+                if (result.item.type === 'authors') {
+                    return `
+                        <div class="search-result author-result">
+                            <h3><a href="${result.item.permalink}">${result.item.title}</a></h3>
+                            <div class="author-preview">
+                                <p>${result.item.summary || result.item.content.substring(0, 150)}...</p>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="search-result">
+                            <h3><a href="${result.item.permalink}">${result.item.title}</a></h3>
+                            <p>${result.item.summary || result.item.content.substring(0, 200)}...</p>
+                        </div>
+                    `;
+                }
+            }).join('');
+            
+            searchResults.innerHTML = html || '<p>No results found</p>';
+        }
+    });
+</script>
+
+<style>
+.search-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.search-result {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result h3 {
+    margin: 0 0 0.5rem 0;
+}
+
+.search-result a {
+    color: #2c5282;
+    text-decoration: none;
+}
+
+.search-result a:hover {
+    text-decoration: underline;
+}
+
+.author-result {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.author-preview {
+    font-style: italic;
+    color: #4a5568;
+}
+</style>
+{{ end }} 

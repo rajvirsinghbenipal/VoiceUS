@@ -1,0 +1,36 @@
+<header class="site-header">
+    <div class="header-content">
+        <h1 class="site-title">{{ site.Title }}</h1>
+        <div class="header-right">
+            {{ partial "search-box.html" . }}
+            {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+        </div>
+    </div>
+</header>
+
+<style>
+.site-header {
+    padding: 1rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+</style>
