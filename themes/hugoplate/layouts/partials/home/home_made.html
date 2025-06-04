@@ -1,0 +1,86 @@
+<section class="py-150 max-md:py-20 relative">
+  <div
+    class="absolute left-1/2 top-20 w-full h-[550px] -translate-x-1/2 bg-cover  bg-[url('../images/hero-gradient.png')] bg-no-repeat bg-center opacity-70 md:hidden -z-10"
+  ></div>
+  <div class="container relative mb-16">
+    <div class="text-center max-w-[550px] mx-auto mb-16">
+      <p class="section-tagline">Tips and Tricks</p>
+      <h2>Our recent news & insights</h2>
+    </div>
+    <div class="relative z-10">
+      <div class="absolute left-1/2 top-60 -translate-x-1/2 -translate-y-1/2 flex max-md:flex-col -z-10 max-md:hidden">
+        <div
+          class="max-1xl:w-[335px] max-1xl:h-[335px]  1xl:w-[442px] 1xl:h-[442px]  rounded-full bg-primary-200/20 blur-[145px]"
+        ></div>
+        <div
+          class="max-1xl:w-[335px] max-1xl:h-[335px]  1xl:w-[442px] 1xl:h-[442px]  rounded-full bg-primary-200/25 -ml-[170px] max-md:ml-0 blur-[145px]"
+        ></div>
+        <div
+          class="max-1xl:w-[335px] max-1xl:h-[335px]  1xl:w-[442px] 1xl:h-[442px]  rounded-full bg-primary-200/20 -ml-[170px] max-md:ml-0 blur-[145px]"
+        ></div>
+      </div>
+      <div class=" grid grid-cols-3 max-md:grid-cols-1 max-lg:grid-cols-2 gap-8">
+        {{ range .Paginator.Pages }}
+        <article
+          class="bg-white dark:bg-dark-200 rounded-medium p-2.5 shadow-nav scale-100 hover:scale-105 transition-transform duration-500 hover:transition-transform hover:duration-500"
+        >
+          <div class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-6 max-md:p-4 h-full">
+            <img
+              src="{{ .Params.thumbnail | absURL }}"
+              alt="service logo"
+              class="mb-6 w-full rounded-md"
+            />
+            <div>
+              {{ if .Params.tags }}
+              {{ $tags := .Params.tags }}
+              {{ if (and (index $tags 0) (eq (len $tags) 1)) }}
+                <!-- If tags is single item array or a string -->
+                <a href="{{ "/tags/" | absURL }}{{ index $tags 0 }}" class="badge">{{ index $tags 0 }}</a>
+              {{ else if (eq (len $tags) 0) }}
+                <!-- If there are no tags -->
+                <!-- Optionally handle no tags here -->
+              {{ else }}
+                <!-- Assuming tags are separated by spaces in the string -->
+                <a href="{{ "/tags/" | absURL }}{{ $tags }}" class="badge">{{ $tags }}</a>
+              {{ end }}
+            {{ end }}
+              <a href="{{.Permalink}}" class="block">
+                <h3 class="mb-3 font-semibold leading-[1.33]">
+                  {{.Title }}
+                </h3>
+              </a>
+              <div class="flex gap-x-2 items-center mb-4 ">
+                <p>{{.Params.author}}</p>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="5"
+                    height="6"
+                    viewBox="0 0 5 6"
+                    fill="none"
+                  >
+                    <circle
+                      cx="2.5"
+                      cy="3"
+                      r="2.5"
+                      fill=""
+                      class="fill-[#D8DBD0] dark:fill-[#3B3C39]"
+                    />
+                  </svg>
+                </span>
+                <p>{{ .Date | time.Format ":date_medium" }}</p>
+              </div>
+              <p>{{ truncate 80 .Summary }}</p>
+            </div>
+          </div>
+        </article>
+        {{end}}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="flex items-center justify-center gap-2">
+      {{partial "components/pagination.html" .}}
+    </ul>
+  </div>
+</section>
