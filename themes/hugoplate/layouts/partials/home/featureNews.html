@@ -1,28 +1,53 @@
-{{/* This is the code for a single card within the carousel */}}
+<p class="text-red-500">Found breaking news:</p>
+<ul>
+  {{ range where (where .Site.RegularPages "Section" "news") ".Params.breakingNews" true }}
+    <li>{{ .File.Path }}</li>
+  {{ else }}
+    <li>No matching files.</li>
+  {{ end }}
+</ul>
 
-{{/* The entire card is wrapped in this 'if' condition. 
-  It will only be rendered if the page's front matter includes 'featureBlog: true'.
-*/}}
-{{ if .Params.featureBlog }}
-<div class="snap-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 p-4">
-  <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-    
-    {{/* Image for the featured blog post */}}
-    <img src="{{ .Params.image | relURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
-
-    <div class="p-6 flex flex-col flex-grow">
-      {{/* Category of the post */}}
-      <p class="text-sm text-gray-500 mb-2">{{ .Params.category }}</p>
-      
-      <h3 class="text-xl font-bold mb-2 flex-grow">{{ .Title }}</h3>
-      
-      <p class="text-gray-700 text-base mb-4">{{ .Params.description }}</p>
-      
-      <div class="text-sm text-gray-600 mt-auto">
-        {{/* Format the date for display */}}
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
-      </div>
+<div class="container py-12">
+  <div class="swiper" id="news-feature">
+    <div class="swiper-wrapper">
+      {{ range where (where .Site.RegularPages "Section" "news") ".Params.breakingNews" true }}
+      <article class="bg-white dark:bg-dark-200 rounded-lg p-4 swiper-slide shadow-md">
+        <div class="border border-gray-200 dark:border-borderColour-dark rounded p-4">
+          <div class="grid grid-cols-2 gap-6 items-center max-md:grid-cols-1">
+            <img
+              src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ else }}/images/default-news.jpg{{ end }}"
+              alt="news image"
+              class="w-full rounded-lg h-64 object-cover"
+            />
+            <div>
+              <div class="mb-2">
+                <span class="inline-block px-3 py-1 text-sm bg-primary-100 text-primary-700 rounded-full">
+                  {{ with .Params.category }}{{ . }}{{ else }}News{{ end }}
+                </span>
+              </div>
+              <a href="{{ .Permalink }}">
+                <h3 class="text-xl font-semibold mb-2">{{ .Title }}</h3>
+              </a>
+              <div class="flex gap-2 items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <span>{{ with .Params.author }}{{ . }}{{ else }}Admin{{ end }}</span>
+                {{ with .Date }}
+                <span>•</span>
+                <span>{{ . | time.Format ":date_medium" }}</span>
+                {{ end }}
+              </div>
+              <p class="text-gray-700 dark:text-gray-300">
+                {{ with .Params.description }}{{ . | truncate 120 }}{{ else }}No description available.{{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ else }}
+      <p class="text-center text-gray-500 swiper-slide">No breaking news found.</p>
+      {{ end }}
     </div>
+    <div class="swiper-pagination mt-8"></div>
   </div>
 </div>
-{{ end }}
+
+

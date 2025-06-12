@@ -8,7 +8,7 @@ categories: ["Software"]
 author: "John Doe"
 tags: ["software", "tailwind"]
 draft: false
-featureblog: true
+breakingNews: true
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
