@@ -4,11 +4,13 @@ meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
 image: "/images/image-placeholder.png"
-categories: ["Software"]
+categories: 
+- Software
+- news
 author: "John Doe"
-tags: ["software", "tailwind"]
+tags: ["vmware", "tailwind"]
 draft: false
-featureblog: true
+breakingNews: true
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

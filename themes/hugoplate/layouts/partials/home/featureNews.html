@@ -1,4 +1,4 @@
-<center style="margin-top: 25px;"><h2>Breaking News<h2></center>
+<center style="margin-top: 25px;"><h2>Breaking News</h2></center>
 
 <style>
   /* Controls container is now just for the scrollbar */
@@ -9,11 +9,9 @@
     padding: 0 1rem;
   }
 
-  /* REMOVED: All styles for .swiper-pagination and .swiper-pagination-bullet */
-
   /* --- Scrollbar Styles --- */
   .swiper-scrollbar {
-    position: static; 
+    position: static;
     height: 6px;
     background: rgba(0, 0, 0, 0.1); /* Light theme scrollbar track */
     width: 100%;
@@ -42,27 +40,12 @@
   }
   .swiper-button-next,
   .swiper-button-prev {
-    background-color: rgba(255, 255, 255, 0.7);
     width: 2.75rem;
     height: 2.75rem;
-    border-radius: 9999px;
-    transition: background-color 0.2s ease;
     top: 43%;
     position: absolute;
   }
-  .dark .swiper-button-next,
-  .dark .swiper-button-prev {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-     background-color: rgba(255, 255, 255, 1);
-  }
-  .dark .swiper-button-next:hover,
-  .dark .swiper-button-prev:hover {
-     background-color: rgba(0, 0, 0, 0.5);
-  }
-  
+
   .swiper-slide {
       flex-shrink: 0;
   }
@@ -81,10 +64,19 @@
               class="w-full rounded-lg h-64 object-cover"
             />
             <div>
-              <div class="mb-2">
+              <div class="mb-2 flex flex-wrap items-center gap-2">
                 <span class="inline-block px-3 py-1 text-sm bg-primary-100 text-primary-700 rounded-full">
-                  {{ with .Params.category }}{{ . }}{{ else }}News{{ end }}
+                   {{ with .Params.categories }}
+                  {{ range . }}
+                    <a href="{{ "/categories/" | absURL }}{{ . | urlize }}" class="badge badge-category">{{ . }}</a>
+                  {{ end }}
+                {{ end }}
                 </span>
+               {{ with .Params.tags }}
+                  {{ range . }}
+                    <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="badge badge-tag">{{ . }}</a>
+                  {{ end }}
+                {{ end }}
               </div>
               <a href="{{ .Permalink }}">
                 <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{{ .Title }}</h3>
@@ -126,13 +118,10 @@
       mousewheel: true,
       grabCursor: true,
 
-      // REMOVED: The entire pagination object from the javascript initialization
-      
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      // RESTORED: The scrollbar object is back
       scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true,

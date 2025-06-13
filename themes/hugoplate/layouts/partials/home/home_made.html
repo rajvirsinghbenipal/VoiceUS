@@ -3,12 +3,45 @@
 {{ partial "home/featureNews.html" . }}
 
 <section class="pt-20 pb-20 max-md:py-20 relative">
+  <style>
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+    }
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    .badge-category {
+      background-color: #E0E7FF; /* Light Indigo */
+      color: #4338CA;          /* Dark Indigo */
+    }
+    .dark .badge-category {
+      background-color: #4F46E5;
+      color: #E0E7FF;
+    }
+    .badge-tag {
+      background-color: #F3F4F6; /* Light Gray */
+      color: #374151;           /* Dark Gray */
+    }
+    .dark .badge-tag {
+      background-color: #374151;
+      color: #D1D5DB;
+    }
+  </style>
+
   <div
     class="absolute left-1/2 top-0 w-full h-[550px] -translate-x-1/2 bg-cover bg-[url('../images/hero-gradient.png')] bg-no-repeat bg-center opacity-70 md:hidden -z-10"
   ></div>
   <div class="container relative mb-16">
     <div class="text-center max-w-[550px] mx-auto mb-16">
-      <h2>ਤਾਜ਼ਾ ਅਤੇ ਨਵੀਆਂ ਖ਼ਬਰਾਂ</h2>
+      <h2>ਤਾਜ਼ਾ ਅਤੇ ਨਵੀਆਂ ਖ਼ਬਰਾਂ</h2>
       <p>By ਤਰਵਿੰਦਰ ਸਿੰਘ ਬੈਨੀਪਾਲ </p>
     </div>
     <div class="relative z-10">
@@ -29,23 +62,26 @@
         <article
           class="bg-body dark:bg-darkmode-body rounded-medium p-2.5 shadow-nav scale-100 hover:scale-105 transition-transform duration-500 hover:transition-transform hover:duration-500"
         >
-          <div class="border border-dashed rounded border-black dark:border-white p-6 max-md:p-4 h-full">
+          <div class="border border-dashed rounded border-black dark:border-white p-6 max-md:p-4 h-full flex flex-col">
             <img
               src="{{ .Params.thumbnail | absURL }}"
               alt="service logo"
               class="mb-6 w-full rounded-md"
             />
-            <div>
-              {{ if .Params.tags }}
-                {{ $tags := .Params.tags }}
-                {{ if (and (index $tags 0) (eq (len $tags) 1)) }}
-                  <a href="{{ "/tags/" | absURL }}{{ index $tags 0 | urlize }}" class="badge">{{ index $tags 0 }}</a>
-                {{ else if gt (len $tags) 1 }}
-                  {{ range $tags }}
-                    <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="badge">{{ . }}</a>
+            <div class="flex flex-col flex-grow">
+              <div class="flex flex-wrap items-center gap-2 mb-4">
+                {{ with .Params.categories }}
+                  {{ range . }}
+                    <a href="{{ "/categories/" | absURL }}{{ . | urlize }}" class="badge badge-category">{{ . }}</a>
                   {{ end }}
                 {{ end }}
-              {{ end }}
+
+                {{ with .Params.tags }}
+                  {{ range . }}
+                    <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="badge badge-tag">{{ . }}</a>
+                  {{ end }}
+                {{ end }}
+              </div>
               <a href="{{.Permalink}}" class="block">
                 <h3 class="mb-3 font-semibold leading-[1.33]">
                   {{.Title }}
@@ -72,7 +108,7 @@
                 </span>
                 <p>{{ .Date | time.Format ":date_medium" }}</p>
               </div>
-              <p>{{ truncate 80 .Summary }}</p>
+              <p class="mt-auto">{{ truncate 80 .Summary }}</p>
             </div>
           </div>
         </article>

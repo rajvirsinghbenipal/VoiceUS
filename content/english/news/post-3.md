@@ -6,7 +6,7 @@ date: 2025-06-11T12:00:00+05:30
 image: "/images/image-placeholder.png"
 categories: ["Software"]
 author: "John Doe"
-tags: ["software", "tailwind"]
+tags: ["vmware", "tailwind"]
 draft: false
 breakingNews: true
 ---

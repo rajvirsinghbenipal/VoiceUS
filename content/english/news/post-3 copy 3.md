@@ -6,9 +6,9 @@ date: 2022-04-04T05:00:00Z
 image: "/images/image-placeholder.png"
 categories: ["Software"]
 author: "John Doe"
-tags: ["software", "tailwind"]
+tags: ["vmware", "tailwind"]
 draft: false
-breakingNews: true
+breakingNews: false
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
