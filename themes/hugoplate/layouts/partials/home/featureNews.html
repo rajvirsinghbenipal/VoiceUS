@@ -1,18 +1,79 @@
-<p class="text-red-500">Found breaking news:</p>
-<ul>
-  {{ range where (where .Site.RegularPages "Section" "news") ".Params.breakingNews" true }}
-    <li>{{ .File.Path }}</li>
-  {{ else }}
-    <li>No matching files.</li>
-  {{ end }}
-</ul>
+<center style="margin-top: 25px;"><h2>Breaking News<h2></center>
+
+<style>
+  /* Controls container is now just for the scrollbar */
+  .swiper-controls {
+    position: relative;
+    margin-top: 2rem; /* Space between slider and scrollbar */
+    /* Padding to contain the scrollbar nicely */
+    padding: 0 1rem;
+  }
+
+  /* REMOVED: All styles for .swiper-pagination and .swiper-pagination-bullet */
+
+  /* --- Scrollbar Styles --- */
+  .swiper-scrollbar {
+    position: static; 
+    height: 6px;
+    background: rgba(0, 0, 0, 0.1); /* Light theme scrollbar track */
+    width: 100%;
+  }
+  .dark .swiper-scrollbar {
+    background: rgba(255, 255, 255, 0.15); /* Dark theme scrollbar track */
+  }
+  .swiper-scrollbar-drag {
+    background: #000; /* Light theme scrollbar handle */
+    border-radius: 6px;
+  }
+  .dark .swiper-scrollbar-drag {
+    background: #fff; /* Dark theme scrollbar handle */
+  }
+
+  /* --- Navigation Arrow Styles --- */
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 1.25rem !important;
+    font-weight: 900;
+    color: #000;
+  }
+  .dark .swiper-button-next::after,
+  .dark .swiper-button-prev::after {
+    color: #fff;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    top: 43%;
+    position: absolute;
+  }
+  .dark .swiper-button-next,
+  .dark .swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+     background-color: rgba(255, 255, 255, 1);
+  }
+  .dark .swiper-button-next:hover,
+  .dark .swiper-button-prev:hover {
+     background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .swiper-slide {
+      flex-shrink: 0;
+  }
+</style>
 
 <div class="container py-12">
-  <div class="swiper" id="news-feature">
+  <div class="swiper relative" id="news-feature">
     <div class="swiper-wrapper">
       {{ range where (where .Site.RegularPages "Section" "news") ".Params.breakingNews" true }}
-      <article class="bg-white dark:bg-dark-200 rounded-lg p-4 swiper-slide shadow-md">
-        <div class="border border-gray-200 dark:border-borderColour-dark rounded p-4">
+      <article class="bg-white dark:bg-black rounded-lg p-4 swiper-slide shadow-md w-[400px]">
+        <div class="border border-black dark:border-white rounded p-4">
           <div class="grid grid-cols-2 gap-6 items-center max-md:grid-cols-1">
             <img
               src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ else }}/images/default-news.jpg{{ end }}"
@@ -26,7 +87,7 @@
                 </span>
               </div>
               <a href="{{ .Permalink }}">
-                <h3 class="text-xl font-semibold mb-2">{{ .Title }}</h3>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{{ .Title }}</h3>
               </a>
               <div class="flex gap-2 items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
                 <span>{{ with .Params.author }}{{ . }}{{ else }}Admin{{ end }}</span>
@@ -46,8 +107,37 @@
       <p class="text-center text-gray-500 swiper-slide">No breaking news found.</p>
       {{ end }}
     </div>
-    <div class="swiper-pagination mt-8"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="swiper-controls">
+      <div class="swiper-scrollbar"></div>
+      </div>
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const newsSwiper = new Swiper('#news-feature', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      freeMode: true,
+      mousewheel: true,
+      grabCursor: true,
 
+      // REMOVED: The entire pagination object from the javascript initialization
+      
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // RESTORED: The scrollbar object is back
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+        hide: false,
+      },
+    });
+  });
+</script>
