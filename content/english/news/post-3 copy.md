@@ -4,11 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
 image: "/images/image-placeholder.png"
-categories: 
-- Software
-- news
+newsCategories: ["Finance", "World News"]
+newsTags: ["stocks"]
 author: "John Doe"
-tags: ["vmware", "tailwind"]
 draft: false
 breakingNews: true
 ---

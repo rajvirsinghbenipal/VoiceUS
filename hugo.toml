@@ -37,6 +37,14 @@ disableAliases = false
 pagerSize = 9
 path = 'page'
 
+[taxonomies]
+  # For the blog section
+  blog_category = "blogCategories"
+  blog_tag = "blogTags"
+
+  # For the news section
+  news_category = "newsCategories"
+  news_tag = "newsTags"
 
 ############################# Build ##############################
 [build]

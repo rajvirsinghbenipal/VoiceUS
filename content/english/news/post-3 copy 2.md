@@ -4,9 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2022-04-04T05:00:00Z
 image: "/images/image-placeholder.png"
-categories: ["Software"]
+newsCategories: ["Software"]
 author: "John Doe"
-tags: ["vmware", "tailwind"]
+newsTags: ["vmware", "tailwind"]
 draft: false
 featureblog: false
 ---

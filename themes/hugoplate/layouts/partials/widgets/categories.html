@@ -1,18 +1,53 @@
-<!-- categories -->
-{{ if isset site.Taxonomies "categories" }}
-  {{ if not (eq (len site.Taxonomies.categories) 0) }}
+{{ if isset site.Taxonomies "blogCategories" }}
+  {{ if not (eq (len site.Taxonomies.blogCategories) 0) }}
     <div class="mb-8">
-      <h5 class="mb-6">{{ T "categories" }}</h5>
+      <h5 class="mb-6">Blog Categories</h5>
       <div class="bg-light dark:bg-darkmode-light rounded p-8">
         <ul class="space-y-4">
-          {{ range $name, $items := site.Taxonomies.categories }}
+          {{ range $name, $items := site.Taxonomies.blogCategories }}
             <li>
               <a
-                class="hover:text-primary dark:hover:text-darkmode-primary {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
-                  active
-                {{ end }} flex justify-between"
+                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between {{/* Updated active state logic */}}
+                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `blogCategories`) (eq $.Page.Title .Page.Title)) }}
+                    active
+                  {{ end }}"
                 href="{{ .Page.RelPermalink }}">
-                {{ .Page.Title }} <span>( {{ len $items }} )</span>
+
+                {{- /* === MODIFIED LINE START === */ -}}
+                {{ $cleanTitle := index (last 1 (split .Page.Title "/")) 0 }}
+                {{ $cleanTitle }} 
+                {{- /* === MODIFIED LINE END === */ -}}
+                
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ if isset site.Taxonomies "newsCategories" }}
+  {{ if not (eq (len site.Taxonomies.newsCategories) 0) }}
+    <div class="mb-8">
+      <h5 class="mb-6">News Categories</h5>
+      <div class="bg-light dark:bg-darkmode-light rounded p-8">
+        <ul class="space-y-4">
+          {{ range $name, $items := site.Taxonomies.newsCategories }}
+            <li>
+              
+              <a
+                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between {{/* Updated active state logic */}}
+                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `newsCategories`) (eq $.Page.Title .Page.Title)) }}
+                    active
+                  {{ end }}"
+                href="{{ .Page.RelPermalink }}">
+                
+                {{- /* === MODIFIED LINE START === */ -}}
+                {{ $cleanTitle := index (last 1 (split .Page.Title "/")) 0 }}
+                {{ $cleanTitle }} 
+                {{- /* === MODIFIED LINE END === */ -}}
+
               </a>
             </li>
           {{ end }}
