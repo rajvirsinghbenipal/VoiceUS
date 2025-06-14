@@ -7,17 +7,15 @@
           {{ range $name, $items := site.Taxonomies.blogCategories }}
             <li>
               <a
-                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between {{/* Updated active state logic */}}
-                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `blogCategories`) (eq $.Page.Title .Page.Title)) }}
+                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between
+                  {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "blogCategories") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"
                 href="{{ .Page.RelPermalink }}">
-
-                {{- /* === MODIFIED LINE START === */ -}}
-                {{ $cleanTitle := index (last 1 (split .Page.Title "/")) 0 }}
-                {{ $cleanTitle }} 
-                {{- /* === MODIFIED LINE END === */ -}}
                 
+                {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}
+                {{ title $cleanTitle }}
+
               </a>
             </li>
           {{ end }}
@@ -35,18 +33,15 @@
         <ul class="space-y-4">
           {{ range $name, $items := site.Taxonomies.newsCategories }}
             <li>
-              
               <a
-                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between {{/* Updated active state logic */}}
-                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `newsCategories`) (eq $.Page.Title .Page.Title)) }}
+                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between
+                  {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "newsCategories") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"
                 href="{{ .Page.RelPermalink }}">
                 
-                {{- /* === MODIFIED LINE START === */ -}}
-                {{ $cleanTitle := index (last 1 (split .Page.Title "/")) 0 }}
-                {{ $cleanTitle }} 
-                {{- /* === MODIFIED LINE END === */ -}}
+                {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}
+                {{ title $cleanTitle }}
 
               </a>
             </li>

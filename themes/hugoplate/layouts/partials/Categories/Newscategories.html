@@ -1,0 +1,17 @@
+<div class="mb-8">
+  {{ $taxonomy := site.Taxonomies.newsCategories }}
+  {{ if $taxonomy }}
+    <ul class="space-y-2">
+      {{ range $name, $items := $taxonomy }}
+        {{ $termTitle := index (last 1 (split .Page.Title "/")) 0 }}
+        <li>
+          <a href="{{ .Page.RelPermalink }}" class="text-green-600 hover:underline">
+            {{ $termTitle }} ({{ .Count }})
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>No news categories found.</p>
+  {{ end }}
+</div>

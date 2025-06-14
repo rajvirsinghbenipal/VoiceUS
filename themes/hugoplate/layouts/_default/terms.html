@@ -1,12 +1,10 @@
 {{ define "main" }}
   {{ partial "page-header" . }}
 
-
   <section class="section">
     <div class="container">
-      <ul class="text-center">
-        {{/* categories */}}
-        {{ if eq .Permalink (`categories/` | absLangURL) }}
+      {{ if eq .Data.Plural "categories" }}
+        <ul class="text-center">
           {{ range site.Taxonomies.categories.ByCount }}
             <li class="m-3 inline-block">
               <a
@@ -19,9 +17,10 @@
               </a>
             </li>
           {{ end }}
-        {{ end }}
-        {{/* tags */}}
-        {{ if eq .Permalink (`tags/` | absLangURL) }}
+        </ul>
+
+      {{ else if eq .Data.Plural "tags" }}
+        <ul class="text-center">
           {{ range site.Taxonomies.tags.ByCount }}
             <li class="m-3 inline-block">
               <a
@@ -34,8 +33,17 @@
               </a>
             </li>
           {{ end }}
-        {{ end }}
-      </ul>
+        </ul>
+
+      {{ else if eq .Data.Plural "blogCategories" }}
+        {{ partial "Categories/Blogcategories.html" . }}
+
+      {{ else if eq .Data.Plural "newsCategories" }}
+        {{ partial "Categories/Newscategories.html" . }}
+
+      {{ else }}
+        <p>No categories or tags to display.</p>
+      {{ end }}
     </div>
   </section>
 {{ end }}

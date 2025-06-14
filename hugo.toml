@@ -46,6 +46,11 @@ path = 'page'
   news_category = "newsCategories"
   news_tag = "newsTags"
 
+
+[params.taxonomy_labels]
+  blogCategories = "Blog Categories"
+  newsCategories = "News Categories"
+
 ############################# Build ##############################
 [build]
 [build.buildStats]
