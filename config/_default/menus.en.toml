@@ -7,10 +7,14 @@ url = "/"
 weight = 1
 
 [[main]]
-name = "Categories"
-url = "/categories"
+name = "News Categories"
+url = "/newscategories" 
 weight = 2
 
+# [[main]]
+# parent = "Pages"
+# name = "Contact"
+# url = "/contact"
 
 [[main]]
 name = "Blog"

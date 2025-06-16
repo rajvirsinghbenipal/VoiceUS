@@ -2,12 +2,15 @@
   {{ if not (eq (len site.Taxonomies.blogCategories) 0) }}
     <div class="mb-8">
       <h5 class="mb-6">Blog Categories</h5>
-      <div class="bg-light dark:bg-darkmode-light rounded p-8">
-        <ul class="space-y-4">
+      <div class="bg-light dark:bg-darkmode-light rounded p-6">
+        {{/* The <ul> now has no specific classes, letting the <li>s wrap naturally */}}
+        <ul>
           {{ range $name, $items := site.Taxonomies.blogCategories }}
-            <li>
+            {{/* Applied 'inline-block' to the list item */}}
+            <li class="inline-block">
               <a
-                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between
+                {{/* Copied all classes from the tags link to create the badge style */}}
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white
                   {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "blogCategories") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"
@@ -29,12 +32,15 @@
   {{ if not (eq (len site.Taxonomies.newsCategories) 0) }}
     <div class="mb-8">
       <h5 class="mb-6">News Categories</h5>
-      <div class="bg-light dark:bg-darkmode-light rounded p-8">
-        <ul class="space-y-4">
+      <div class="bg-light dark:bg-darkmode-light rounded p-6">
+        {{/* The <ul> now has no specific classes, letting the <li>s wrap naturally */}}
+        <ul>
           {{ range $name, $items := site.Taxonomies.newsCategories }}
-            <li>
+            {{/* Applied 'inline-block' to the list item */}}
+            <li class="inline-block">
               <a
-                class="hover:text-primary dark:hover:text-darkmode-primary flex justify-between
+                {{/* Copied all classes from the tags link to create the badge style */}}
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white
                   {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "newsCategories") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"

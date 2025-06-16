@@ -7,12 +7,13 @@
           {{ range $name, $items := site.Taxonomies.blogTags }}
             <li class="inline-block">
               <a
-                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white {{/* Updated active state logic */}}
-                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `blogTags`) (eq $.Page.Title .Page.Title)) }}
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white
+                  {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "blogTags") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"
                 href="{{ .Page.RelPermalink }}">
-                {{ .Page.Title }}
+                {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}
+                {{ title $cleanTitle }}
               </a>
             </li>
           {{ end }}
@@ -31,12 +32,13 @@
           {{ range $name, $items := site.Taxonomies.newsTags }}
             <li class="inline-block">
               <a
-                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white {{/* Updated active state logic */}}
-                  {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `newsTags`) (eq $.Page.Title .Page.Title)) }}
+                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded bg-white px-3 py-1 hover:text-white
+                  {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "newsTags") (eq $.Page.Title .Page.Title)) }}
                     active
                   {{ end }}"
                 href="{{ .Page.RelPermalink }}">
-                {{ .Page.Title }}
+                {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}
+                {{ title $cleanTitle }}
               </a>
             </li>
           {{ end }}

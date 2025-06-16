@@ -3,23 +3,7 @@
 
   <section class="section">
     <div class="container">
-      {{ if eq .Data.Plural "categories" }}
-        <ul class="text-center">
-          {{ range site.Taxonomies.categories.ByCount }}
-            <li class="m-3 inline-block">
-              <a
-                href="{{ .Page.Permalink }}"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                {{ .Page.Title }}
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  {{ .Count }}
-                </span>
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-
-      {{ else if eq .Data.Plural "tags" }}
+      {{ if eq .Data.Plural "tags" }}
         <ul class="text-center">
           {{ range site.Taxonomies.tags.ByCount }}
             <li class="m-3 inline-block">
@@ -40,6 +24,12 @@
 
       {{ else if eq .Data.Plural "newsCategories" }}
         {{ partial "Categories/Newscategories.html" . }}
+      
+      {{ else if eq .Data.Plural "blogTags" }}
+        {{ partial "Tags/BlogTags.html" . }}
+
+      {{ else if eq .Data.Plural "newsTags" }}
+        {{ partial "Tags/NewsTags.html" . }}
 
       {{ else }}
         <p>No categories or tags to display.</p>

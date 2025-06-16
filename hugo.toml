@@ -51,6 +51,8 @@ path = 'page'
   blogCategories = "Blog Categories"
   newsCategories = "News Categories"
 
+  blogtags = "Blog Tags"
+  newsTags = "News Tags"
 ############################# Build ##############################
 [build]
 [build.buildStats]

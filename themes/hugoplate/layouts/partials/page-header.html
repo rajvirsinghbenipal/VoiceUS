@@ -2,7 +2,29 @@
   <div class="container text-center">
     <div
       class="from-body to-light dark:from-darkmode-body dark:to-darkmode-light rounded-2xl bg-gradient-to-b px-8 py-14">
-      <h1>{{ T (printf "%s" (lower .Title)) | default .Title | title }}</h1>
+      
+      <h1>
+        {{/*
+          Set a default title first.
+          This will be used for all regular pages and posts.
+        */}}
+        {{ $pageTitle := T (printf "%s" (lower .Title)) | default .Title | title }}
+
+        {{/*
+          Check if this is a taxonomy page by looking at its .Type.
+          The .Type will be "blogCategories", "newsCategories", etc.
+        */}}
+        {{ if isset site.Params.taxonomy_labels .Type }}
+          
+          {{/* If a custom label exists for this .Type, overwrite the default title. */}}
+          {{ $pageTitle = index site.Params.taxonomy_labels .Type }}
+
+        {{ end }}
+
+        {{/* Finally, print the determined title. */}}
+        {{ $pageTitle }}
+      </h1>
+      
       {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6") }}
     </div>
   </div>

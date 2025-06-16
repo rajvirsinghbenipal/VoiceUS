@@ -1,17 +1,22 @@
-<div class="mb-8">
-  {{ $taxonomy := site.Taxonomies.newsCategories }}
-  {{ if $taxonomy }}
-    <ul class="space-y-2">
-      {{ range $name, $items := $taxonomy }}
-        {{ $termTitle := index (last 1 (split .Page.Title "/")) 0 }}
-        <li>
-          <a href="{{ .Page.RelPermalink }}" class="text-green-600 hover:underline">
-            {{ $termTitle }} ({{ .Count }})
-          </a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ else }}
-    <p>No news categories found.</p>
-  {{ end }}
-</div>
+{{/* layouts/partials/Categories/Newscategories.html */}}
+{{ $taxonomy := site.Taxonomies.newsCategories }}
+{{ if $taxonomy }}
+  <ul class="text-center">
+    {{ range $taxonomy.ByCount }}
+      <li class="m-3 inline-block">
+        <a
+          href="{{ .Page.Permalink }}"
+          class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl shadow-sm transition hover:shadow-md">
+          
+          {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}{{ title $cleanTitle }}
+
+          <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
+            {{ .Count }}
+          </span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  <p class="text-center">No news categories found.</p>
+{{ end }}
