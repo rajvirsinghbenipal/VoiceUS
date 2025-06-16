@@ -2,16 +2,23 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "static/images"
+public_folder: "/images"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "news"
+    label: "News"
+    folder: "content/news"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "Title", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "News Categories", name: "newsCategories", widget: "list", default: [], required: false }
+      # - { label: "News Tags", name: "newsTags", widget: "list", default: [], required: false }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Breaking News", name: "breakingNews", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
