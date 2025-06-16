@@ -1,5 +1,5 @@
 ---
-title: "How to build an Tarun dev"
+title: "How to buildev from scratch"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
@@ -9,9 +9,8 @@ newscategories:
 - accidents
 - news
 author: "John Doe"
-tags: ["silicon", "technology"]
+# tags: ["silicon", "technology"]
 draft: false
-featureblog: true
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

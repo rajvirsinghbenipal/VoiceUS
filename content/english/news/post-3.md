@@ -1,15 +1,15 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "How to build an game  hhygy"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-image: "/images/image-placeholder.png"
+image: "/images/tester.jpeg"
 newscategories: 
 
 - Finance
 - news
 author: "John Doe"
-newstags: ["stocks"]
+# newstags: ["stocks"]
 draft: false
 breakingNews: true
 ---
