@@ -4,7 +4,10 @@ meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
 image: "/images/image-placeholder.png"
-categories: ["Software"]
+newscategories: 
+
+- accidents
+- news
 author: "John Doe"
 tags: ["vmware", "tailwind"]
 draft: false

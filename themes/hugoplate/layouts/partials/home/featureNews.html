@@ -66,15 +66,15 @@
             <div>
               <div class="mb-2 flex flex-wrap items-center gap-2">
                 <span class="inline-block px-3 py-1 text-sm bg-primary-100 text-primary-700 rounded-full">
-                   {{ with .Params.categories }}
+                   {{ with .Params.newsCategories }}
                   {{ range . }}
-                    <a href="{{ "/categories/" | absURL }}{{ . | urlize }}" class="badge badge-category">{{ . }}</a>
+                    <a href="{{ "/newscategories/" | absURL }}{{ . | urlize }}" class="badge badge-category">{{ . }}</a>
                   {{ end }}
                 {{ end }}
                 </span>
-               {{ with .Params.tags }}
+               {{ with .Params.newsTags }}
                   {{ range . }}
-                    <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="badge badge-tag">{{ . }}</a>
+                    <a href="{{ "/newstags/" | absURL }}{{ . | urlize }}" class="badge badge-tag">{{ . }}</a>
                   {{ end }}
                 {{ end }}
               </div>

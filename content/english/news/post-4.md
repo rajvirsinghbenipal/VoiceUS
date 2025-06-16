@@ -1,10 +1,13 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "How to build an Tarun dev"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-image: "/images/image-placeholder.png"
-categories: ["Architecture"]
+image: "/images/tester.jpeg"
+newscategories: 
+
+- accidents
+- news
 author: "John Doe"
 tags: ["silicon", "technology"]
 draft: false

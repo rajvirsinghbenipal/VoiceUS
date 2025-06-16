@@ -3,8 +3,8 @@ Title: "How to build an Application with modern Technology"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-image: "/images/image-placeholder.png"
-newsCategories: ["Finance", "World News"]
+image: "https://imgflip.com/i/9xjmwl"
+newsCategories: ["Finance"]
 newsTags: ["stocks"]
 author: "John Doe"
 draft: false

@@ -3,8 +3,11 @@ title: "How to build an Application with modern Technology"
 meta_title: ""
 description: "this is meta description"
 date: 2022-04-04T05:00:00Z
-image: "/images/image-placeholder.png"
-newsCategories: ["Software"]
+image: "https://imgflip.com/i/9xjmwl"
+newscategories: 
+
+- accidents
+- news
 author: "John Doe"
 newsTags: ["vmware", "tailwind"]
 draft: false
