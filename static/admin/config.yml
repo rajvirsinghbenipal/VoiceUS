@@ -1,7 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: rajvirsinghbenipal/Punjabi_News # Your repository path
+  branch: main # Or your default branch
 
+# ... your collections and media folder configuration
 media_folder: "static/images"
 public_folder: "/images"
 
