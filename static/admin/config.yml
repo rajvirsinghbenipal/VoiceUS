@@ -2,6 +2,8 @@ backend:
   name: github
   repo: rajvirsinghbenipal/Punjabi_News # Your repository path
   branch: main # Or your default branch
+  base_url: https://punjabi_news.vercel.app/api # IMPORTANT: Replace with your actual Vercel domain
+  auth_endpoint: callback # This points to your Vercel Serverless Function
 
 # ... your collections and media folder configuration
 media_folder: "static/images"
