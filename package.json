@@ -28,6 +28,7 @@
     "tailwindcss": "^4.1.6"
   },
   "dependencies": {
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "node-fetch": "^3.3.2" 
   }
 }

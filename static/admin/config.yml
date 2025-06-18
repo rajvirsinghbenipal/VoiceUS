@@ -1,25 +1,34 @@
+# static/admin/config.yml
+# (Rest of your config.yml like backend, media_folder, public_folder remains the same)
+
 backend:
   name: github
-  repo: rajvirsinghbenipal/Punjabi_News # Your repository path
-  branch: main # Or your default branch
-  base_url: https://punjabi_news.vercel.app/api # IMPORTANT: Replace with your actual Vercel domain
-  auth_endpoint: callback # This points to your Vercel Serverless Function
+  repo: rajvirsinghbenipal/Punjabi_News # Your actual GitHub repo
+  branch: main
+  base_url: https://punjabi-news.vercel.app # Your Vercel custom domain
+  auth_endpoint: https://punjabi-news.vercel.app/api/callback # The path to your Vercel Serverless Function
 
-# ... your collections and media folder configuration
-media_folder: "static/images"
-public_folder: "/images"
+display_url: https://punjabi-news.vercel.app
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "news"
-    label: "News"
-    folder: "content/news"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Breaking News", name: "breakingNews", widget: "boolean", default: false }
-      - { label: "Categories", name: "newsCategories", widget: "list", default: ["General"] }
+  - name: "news" # Changed name to 'news' to better reflect your content
+    label: "News Articles" # Display name in the CMS UI
+    folder: "content/news" # Assuming your news articles are in 'content/news'
+    create: true # Allow creating new articles
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename generation based on date and slug
+
+    fields: # These fields directly map to your Hugo front matter
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Meta Title", name: "meta_title", widget: "string", required: false} # Added meta_title
+      - {label: "Description", name: "description", widget: "text", required: false} # For meta description
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", default: "2025-06-18T16:02:50+05:30"} # Set current time as default
+      - {label: "Featured Image", name: "image", widget: "image", required: false, default: "/images/image-placeholder.png"} # For the image path
+      - {label: "News Categories", name: "newsCategories", widget: "list", default: ["General"], allow_add: true, min: 1} # Array of categories
+      - {label: "News Tags", name: "newsTags", widget: "list", required: false, allow_add: true} # Array of tags, optional
+      - {label: "Author", name: "author", widget: "string", required: true}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false} # Boolean for draft status
+      - {label: "Breaking News", name: "breakingNews", widget: "boolean", default: false} # Boolean for breaking news
+      - {label: "Body", name: "body", widget: "markdown"} # The main content of the article
