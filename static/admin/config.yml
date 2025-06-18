@@ -6,7 +6,7 @@ backend:
   repo: rajvirsinghbenipal/Punjabi_News # Your actual GitHub repo
   branch: main
   base_url: https://punjabi-news.vercel.app # Your Vercel custom domain
-  auth_endpoint: https://punjabi-news.vercel.app/api/callback # The path to your Vercel Serverless Function
+  auth_endpoint: api/callback # The path to your Vercel Serverless Function
 
 display_url: https://punjabi-news.vercel.app
 
