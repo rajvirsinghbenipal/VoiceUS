@@ -117,7 +117,10 @@
       freeMode: true,
       mousewheel: true,
       grabCursor: true,
-
+      autoplay: {
+        delay: 3000, // 3000 milliseconds = 3 seconds
+        disableOnInteraction: false, // Continue autoplay even when user interacts with the slider
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
