@@ -1,10 +1,13 @@
 {
-  "build": {
-    "env": {
-      "HUGO_VERSION": "0.147.3",
-      "GO_VERSION": "1.22"       
+  "builds": [
+    {
+      "src": "vercel-build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
-  },
+  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/$1" }
