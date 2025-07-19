@@ -1,5 +1,5 @@
 ---
-title: "How to build an game  hhygy"
+title: "Varinder Phuji"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
