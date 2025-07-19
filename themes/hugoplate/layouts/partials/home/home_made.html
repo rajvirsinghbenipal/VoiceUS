@@ -41,8 +41,8 @@
   ></div>
   <div class="container relative mb-16">
     <div class="text-center max-w-[550px] mx-auto mb-16">
-      <h2>ਤਾਜ਼ਾ ਅਤੇ ਨਵੀਆਂ ਖ਼ਬਰਾਂ</h2>
-      <p>By ਤਰਵਿੰਦਰ ਸਿੰਘ ਬੈਨੀਪਾਲ </p>
+      <h2>Latest and Point News</h2>
+      <p>By Jhon Doe</p>
     </div>
     <div class="relative z-10">
       <div class="absolute left-1/2 top-60 -translate-x-1/2 -translate-y-1/2 flex max-md:flex-col -z-10 max-md:hidden">
@@ -63,9 +63,10 @@
           class="bg-body dark:bg-darkmode-body rounded-medium p-2.5 shadow-nav scale-100 hover:scale-105 transition-transform duration-500 hover:transition-transform hover:duration-500"
         >
           <div class="border border-dashed rounded border-black dark:border-white p-6 max-md:p-4 h-full flex flex-col">
+            {{ $image := .Params.Image }}
             <img
-              src="{{ .Params.image | absURL }}"
-              alt="service logo"
+              src="{{ with $image }}{{ printf "/images/news/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
+  alt="News Image"
               class="mb-6 w-full rounded-md"
             />
             <div class="flex flex-col flex-grow">

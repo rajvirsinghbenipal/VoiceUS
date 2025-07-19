@@ -3,7 +3,7 @@ title: "CMS test"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-image: "/images/tester.jpeg"
+Image: "tester.jpeg"
 newscategories: 
 
 - Finance

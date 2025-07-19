@@ -3,7 +3,7 @@ Title: "How to build an Application with modern Technology"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-image: "tester.jpeg"
+Image: "tester.jpeg"
 featureImage: "tester.jpeg"
 newsCategories: ["Finance"]
 # newsTags: ["stocks"]
