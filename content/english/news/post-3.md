@@ -3,7 +3,7 @@ title: "Mango"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-Image: "tester.jpeg"
+Image: "IMG_6092.jpeg"
 newscategories: 
 
 - Finance
