@@ -1,10 +1,10 @@
 ---
-Title: "How to build an Application with modern Technology"
+Title: "Munda fadya gya"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-Image: "tester.jpeg"
-featureImage: "tester.jpeg"
+Image: "IMG_6092.jpeg"
+featureImage: "IMG_6092.jpeg"
 newsCategories: ["Finance"]
 # newsTags: ["stocks"]
 author: "John Doe"
