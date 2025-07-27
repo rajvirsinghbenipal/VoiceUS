@@ -5,9 +5,11 @@ description: "this is meta description"
 date: "2025-06-11T12:00:00+05:30"
 Image: "IMG_6092.jpeg"
 newscategories: ["accidents","news"]
+featureImage: "IMG_6092.jpeg"
 author: "John Doe"
 # tags: ["wifi","technology","classroom"]
 draft: false
+breakingNews: false
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
