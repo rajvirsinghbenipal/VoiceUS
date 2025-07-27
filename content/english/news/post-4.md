@@ -2,14 +2,11 @@
 title: "Munda fadya gya"
 meta_title: ""
 description: "this is meta description"
-date: 2025-06-11T12:00:00+05:30
+date: "2025-06-11T12:00:00+05:30"
 Image: "IMG_6092.jpeg"
-newscategories: 
-
-- accidents
-- news
+newscategories: ["accidents","news"]
 author: "John Doe"
-# tags: ["silicon", "technology"]
+# tags: ["wifi","technology","classroom"]
 draft: false
 ---
 
