@@ -1,14 +1,11 @@
 ---
-title: "Munda fadya gya"
+title: "Munda fadya gya Aj"
 meta_title: ""
 description: "this is meta description"
-date: 2025-06-11T12:00:00+05:30
+date: "2025-06-11T12:00:00+05:30"
 Image: "IMG_6092.jpeg"
 featureImage: "IMG_6092.jpeg"
-newscategories: 
-
-- Finance
-- news
+newscategories: ["Finance","news"]
 author: "John Doe"
 # newstags: ["stocks"]
 draft: false
