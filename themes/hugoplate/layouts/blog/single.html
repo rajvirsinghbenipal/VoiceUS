@@ -1,3 +1,5 @@
+
+
 {{ define "main" }}
   <section class="section pt-7">
     <div class="container">
@@ -6,13 +8,14 @@
           {{ $image := .Params.Image }}
           <div class="mb-10">
             <img
-              src="{{ if $image }}{{ printf "/images/blogs/%s" $image | relURL }}{{ else }}{{ "/images/common/placeholder.img" | relURL }}{{ end }}"
+              src="{{ if $image }}{{ printf "/images/blogs/%s" $image | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
               alt="{{ .Title }}"
               class="w-full rounded"
             />
           </div>
 
           <h1 class="h2 mb-4">{{ .Title }}</h1>
+          <h1>hwjhvcy</h1>
 
           <ul class="mb-4">
             <li class="mr-4 inline-block">

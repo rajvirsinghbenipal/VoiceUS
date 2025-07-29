@@ -6,7 +6,7 @@
           {{ $image := .Params.Image }}
           <div class="mb-10">
             <img
-              src="{{ if $image }}{{ printf "/images/blogs/%s" $image | relURL }}{{ else }}{{ "/images/common/placeholder.img" | relURL }}{{ end }}"
+              src="{{ if $image }}{{ printf "/images/news/%s" $image | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
               alt="{{ .Title }}"
               class="w-full rounded"
             />
