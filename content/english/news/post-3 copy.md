@@ -1,13 +1,13 @@
 ---
-Title: "Munda fadya gya"
+Title: "Sumit fad lya"
 meta_title: ""
 description: "this is meta description"
-date: 2025-06-11T12:00:00+05:30
-Image: "IMG_6092.jpeg"
-featureImage: "IMG_6092.jpeg"
+date: "2025-06-11T12:00:00+05:30"
+Image: "tester.jpeg"
+featureImage: "tester.jpeg"
 newsCategories: ["Finance"]
 # newsTags: ["stocks"]
-author: "John Doe"
+author: "sumit"
 draft: false
 breakingNews: true
 ---
