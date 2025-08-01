@@ -1,4 +1,4 @@
----
+<!-- ---
 enable: true
 title: "Ready to build your next project with Hugo?"
 image: "/images/call-to-action.png"
@@ -11,4 +11,4 @@ button:
 # don't create a separate page
 build:
   render: "never"
----
+--- -->
