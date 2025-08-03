@@ -14,13 +14,13 @@ breakingNews: false
 
 In an era where artificial intelligence is reshaping everything from customer service to creative writing, even one of the most delicate human traditions—writing obituaries—is undergoing transformation.
 
-##How It Works
+## How It Works
 
 Companies like Passare and Tribute have introduced AI tools that generate personalized obituaries within minutes. These systems use structured data (like name, age, profession, hobbies, family members, and cause of death) to produce clean, readable obits, often requiring minimal human input.
 
 Using AI in this space promises efficiency, particularly for funeral homes that handle dozens of memorials each week. With just a few clicks, families can receive a draft obituary that saves them the emotional strain of writing during grief.
 
-##Why It’s Gaining Popularity
+## Why It’s Gaining Popularity
 
 ✅ Why It’s Gaining Popularity
 
@@ -30,7 +30,7 @@ Cost-Effective: Many families can’t afford professional obituary writers or le
 
 Emotionally Easier: Some families find it difficult to write about loved ones during mourning. AI offers a gentle starting point.
 
-##Concerns and Criticism
+## Concerns and Criticism
 
 Despite the practical benefits, AI-written obituaries raise deeper questions:
 

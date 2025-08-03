@@ -3,17 +3,8 @@
     <div class="container">
       <div class="row justify-center">
         <article class="lg:col-10">
-          {{ $image := .Params.Image }}
-          <div class="mb-10">
-            <img
-              src="{{ if $image }}{{ printf "/images/News/%s" $image | relURL }}{{ else }}{{ "/images/Common/placeholder.png" | relURL }}{{ end }}"
-              alt="{{ .Title }}"
-              class="w-full rounded"
-            />
           </div>
-
           <h1 class="h2 mb-4">{{ .Title }}</h1>
-
           <ul class="mb-4">
             <li class="mr-4 inline-block">
                 <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
@@ -30,11 +21,22 @@
               </li>
             {{ end }}
 
+            
             <li class="mr-4 inline-block">
               <i class="fa-regular fa-clock mr-2"></i>
               {{ .PublishDate | time.Format ":date_long" }}
             </li>
           </ul>
+
+          {{ $image := .Params.Image }}
+          <div class="mb-10">
+            <img
+              src="{{ if $image }}{{ printf "/images/News/%s" $image | relURL }}{{ else }}{{ "/images/Common/placeholder.png" | relURL }}{{ end }}"
+              alt="{{ .Title }}"
+              class="rounded"
+              style="width:50%"
+            />
+
 
           <div class="content mb-10">
             {{ partial "toc.html" (dict "Class" "blog" "Collapsed" false "TableOfContents" .TableOfContents ) }}
