@@ -3,7 +3,7 @@ title: "Munda fadya gya"
 meta_title: ""
 description: "this is meta description"
 date: "2025-06-11T12:00:00+05:30"
-Image: "IMG_6092.jpeg"
+Image: "tester.jpeg"
 newscategories: ["accidents","news"]
 featureImage: "IMG_6092.jpeg"
 author: "John Doe"

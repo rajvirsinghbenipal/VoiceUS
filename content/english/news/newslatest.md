@@ -1,10 +1,10 @@
 ---
-title: "Munda fad lya"
+title: "US woman jailed over North Korea remote-work scam"
 meta_title: ""
 description: "this is meta description"
 date: 2025-06-11T12:00:00+05:30
-Image: "IMG_6092.jpeg"
-featureImage: "IMG_6092.jpeg"
+Image: "tester.jpeg"
+featureImage: "tester.jpeg"
 newscategories: 
 
 - Finance
