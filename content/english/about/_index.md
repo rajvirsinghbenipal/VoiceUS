@@ -2,7 +2,7 @@
 title: "Hey, I am Rajvir Singh!"
 meta_title: "About"
 description: "this is about me"
-image: "avatar.png"
+image: "382b578e-95fc-4201-a7fb-afce089d28d2.jpeg"
 draft: false
 ---
 
