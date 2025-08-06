@@ -2,6 +2,9 @@
 
 {{ partial "home/featureNews.html" . }}
 
+
+
+
 <section class="pt-20 pb-20 max-md:py-20 relative">
   <style>
     .badge {
@@ -44,6 +47,37 @@
       <h2>Voice Of The People</h2>
       <p>Hear the voices of the Suppressed</p>
     </div>
+
+
+{{ if isset site.Taxonomies "newsCategories" }}
+{{ if not (eq (len site.Taxonomies.newsCategories) 0) }}
+  <div class="mb-8 w-full px-4 md:w-4/5 lg:w-1/2 lg:pl-20">
+    <h5 class="mb-6 text-xl font-semibold">News Categories</h5>
+    <div class="bg-light dark:bg-darkmode-light rounded p-4 sm:p-6">
+      <ul class="flex flex-wrap gap-2">
+        {{ range $name, $items := site.Taxonomies.newsCategories }}
+          <li>
+            <a
+              class="block rounded bg-white px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark
+                {{ if (and (eq $.Page.Kind "term") (eq $.Page.Type "newsCategories") (eq $.Page.Title .Page.Title)) }}
+                  active
+                {{ end }}"
+              href="{{ .Page.RelPermalink }}">
+
+              {{ $cleanTitle := index (last 1 (split (string .Page.Title) "/")) 0 }}
+              {{ title $cleanTitle }}
+
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+{{ end }}
+{{ end }}
+
+
+
     <div class="relative z-10">
       <div class="absolute left-1/2 top-60 -translate-x-1/2 -translate-y-1/2 flex max-md:flex-col -z-10 max-md:hidden">
         <div
