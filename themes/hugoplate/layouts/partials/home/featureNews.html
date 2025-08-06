@@ -40,7 +40,7 @@
   }
   .swiper-button-next,
   .swiper-button-prev {
-    width: 2.75rem;
+    width: 0.75rem;
     height: 2.75rem;
     top: 43%;
     position: absolute;
@@ -56,7 +56,7 @@
     <div class="swiper-wrapper">
       {{ range where (where .Site.RegularPages "Section" "news") ".Params.breakingNews" true }}
       <article class="bg-white dark:bg-black rounded-lg p-4 swiper-slide shadow-md w-[400px]">
-        <div class="border border-black dark:border-white rounded p-4">
+        <div class="dark:border-white rounded p-4">
           <div class="grid grid-cols-2 gap-6 items-center max-md:grid-cols-1">
            {{ $image := .Params.featureImage }}
 <img
