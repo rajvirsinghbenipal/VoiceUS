@@ -60,7 +60,7 @@
           <div class="grid grid-cols-2 gap-6 items-center max-md:grid-cols-1">
            {{ $image := .Params.featureImage }}
 <img
-  src="{{ with $image }}{{ printf "/images/FeatureImage/%s" . | relURL }}{{ else }}{{ "/images/Common/placeholder.png" | relURL }}{{ end }}"
+  src="{{ with $image }}{{ printf "/images/featureImage/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
   alt="News Image"
   class="w-full rounded-lg object-cover"   // h-64
 />
