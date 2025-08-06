@@ -96,7 +96,7 @@
         <article
           class="bg-body dark:bg-darkmode-body rounded-medium p-2.5 shadow-nav scale-100 hover:scale-105 transition-transform duration-500 hover:transition-transform hover:duration-500"
         >
-          <div class="border border-dashed rounded border-black dark:border-white p-6 max-md:p-4 h-full flex flex-col">
+          <div class="rounded border-black dark:border-white p-6 max-md:p-4 h-full flex flex-col">
             {{ $image := .Params.Image }}
             <img
               src="{{ with $image }}{{ printf "/images/news/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
