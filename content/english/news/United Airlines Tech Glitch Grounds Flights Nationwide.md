@@ -12,7 +12,7 @@ draft: false
 breakingNews: true
 ---
 
-## United Airlines Tech Glitch Grounds Flights Nationwide
+### United Airlines Tech Glitch Grounds Flights Nationwide
 
 A major **technology failure** at United Airlines on August 6, 2025, brought air travel to a standstill across the United States. The glitch, rooted in the airline’s **weight and balance computer system**, forced the grounding of all domestic and international United flights for several hours.
 
