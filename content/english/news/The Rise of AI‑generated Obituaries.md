@@ -1,7 +1,7 @@
 ---
 Title: "The Rise of AI‑generated Obituaries"
 meta_title: ""
-description: "AI tools from companies like Passare and Tribute are increasingly being used by funeral homes to write obituaries within minutes."
+description: "AI taking over jobs or helping in jobs?"
 date: "2025-08-02T10:17:00.000Z"
 Image: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
 featureImage: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
