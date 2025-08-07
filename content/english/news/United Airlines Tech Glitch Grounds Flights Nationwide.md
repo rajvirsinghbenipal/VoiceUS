@@ -3,8 +3,8 @@ Title: "United Airlines Tech Glitch Grounds Flights Nationwide"
 meta_title: ""
 description: "Glitch in United Airlines"
 date: "2025-08-07T05:55:01.564Z"
-Image: ""
-featureImage: ""
+Image: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
+featureImage: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
 newsCategories: ["Flight"]
 newsTags: [""]
 author: "Rajvir"
