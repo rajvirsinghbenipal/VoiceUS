@@ -66,4 +66,4 @@ This incident highlights the vulnerabilities of airline tech infrastructure and 
 
 Travelers are advised to **check their flight status** and **arrive early** at the airport to accommodate possible delays and long lines.
 
-Stay tuned for updates on United’s system re
+Stay tuned for updates on United’s system recovery plans.
