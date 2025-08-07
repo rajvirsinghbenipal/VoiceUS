@@ -22,7 +22,7 @@ By the time the issue was resolved, **more than 1,000 flights were delayed**, an
 
 The problem originated in the **weight and balance system**, a critical piece of software that ensures aircraft are safely loaded before takeoff. Without it, planes cannot legally or safely depart.
 
-> “We experienced a temporary outage in a system that calculates weight and balance,” United said in an official statement. “Out of an abundance of caution, we held all aircraft at their origin airports until the issue was resolved.”
+> We experienced a temporary outage in a system that calculates weight and balance,” United said in an official statement. “Out of an abundance of caution, we held all aircraft at their origin airports until the issue was resolved.
 
 Unlike typical IT problems, this issue directly affected flight operations and required coordination between airport crews, pilots, and airline dispatchers.
 
@@ -36,7 +36,7 @@ The tech failure had ripple effects at major U.S. hubs including **Chicago O’H
 - Many travelers reported receiving little to no real-time updates.
 - Airports were filled with passengers waiting for rescheduled flights, with some forced to stay overnight.
 
-> “It was total chaos,” said one traveler at Newark. “No one knew what was going on, and we just sat there for hours.”
+> It was total chaos,” said one traveler at Newark. “No one knew what was going on, and we just sat there for hours.
 
 ---
 
@@ -52,7 +52,7 @@ Aviation experts have pointed out that as airlines rely more on digital infrastr
 
 United Airlines issued an apology and stated that customers affected by the glitch will be eligible for **travel waivers**, **refunds**, or **free rebooking** depending on their situation.
 
-> “We understand how frustrating this experience has been for our customers,” the airline said. “We’re offering flexibility and assistance to help travelers complete their journeys.”
+> We understand how frustrating this experience has been for our customers,” the airline said. “We’re offering flexibility and assistance to help travelers complete their journeys.
 
 Affected passengers are encouraged to visit United’s support page or contact customer service directly.
 
