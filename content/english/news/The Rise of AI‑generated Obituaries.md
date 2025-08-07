@@ -5,7 +5,7 @@ description: "AI tools from companies like Passare and Tribute are increasingly 
 date: "2025-08-02T10:17:00.000Z"
 Image: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
 featureImage: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
-newsCategories: ["AI","news"]
+newsCategories: ["AI",""]
 newsTags: [""]
 author: "Rajvir "
 draft: false
