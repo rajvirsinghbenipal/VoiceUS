@@ -9,7 +9,7 @@ newsCategories: ["AI","news"]
 newsTags: [""]
 author: "Rajvir "
 draft: false
-breakingNews: false
+breakingNews: true
 ---
 
 In an era where artificial intelligence is reshaping everything from customer service to creative writing, even one of the most delicate human traditions—writing obituaries—is undergoing transformation.
