@@ -4,7 +4,7 @@ meta_title: ""
 description: "AI tools from companies like Passare and Tribute are increasingly being used by funeral homes to write obituaries within minutes."
 date: "2025-08-02T10:17:00.000Z"
 Image: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
-featureImage: "tester.jpeg"
+featureImage: "126F2A36-FBAB-4B8A-8534-40DE5C608FB2.png"
 newsCategories: ["AI","news"]
 newsTags: [""]
 author: "Rajvir "
