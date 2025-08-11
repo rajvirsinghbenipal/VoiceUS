@@ -99,7 +99,7 @@
           <div class="rounded border-black dark:border-white p-6 max-md:p-4 h-full flex flex-col">
             {{ $image := .Params.Image }}
             <img
-              src="{{ with $image }}{{ printf "/images/news/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
+              src="{{ with $image }}{{ printf "/images/Images/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
   alt="News Image;nghvg"
               class="mb-6 w-full rounded-md"
             />

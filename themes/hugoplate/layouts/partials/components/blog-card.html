@@ -1,7 +1,7 @@
 <div class="bg-body dark:bg-darkmode-body">
   {{ $image := .Params.Image }}
 <img
-              src="{{ with $image }}{{ printf "/images/blogs/%s" . | relURL }}{{ else }}{{ "/images/Common/placeholder.png" | relURL }}{{ end }}"
+              src="{{ with $image }}{{ printf "/images/Images/%s" . | relURL }}{{ else }}{{ "/images/common/placeholder.png" | relURL }}{{ end }}"
   alt="Image"
               class="mb-6 w-full rounded-md"
             />
